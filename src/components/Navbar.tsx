@@ -48,7 +48,7 @@ export default function Navbar() {
         <DropdownMenu>
           <DropdownMenuTrigger className="flex items-center gap-1 text-base font-medium text-gray-800 hover:text-green-600">
             Industries
-            <ChevronDown className="h-4 w-4" />
+            <ChevronDown className="h-4 w-4 relative top-[2px]" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem>
