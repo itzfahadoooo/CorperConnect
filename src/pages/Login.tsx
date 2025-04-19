@@ -13,6 +13,7 @@ const Login = () => {
       await login(email, password);
       navigate("/dashboard");
     } catch (err) {
+      console.error("Email Login error:", err);
       alert("Login failed");
     }
   };
@@ -22,6 +23,7 @@ const Login = () => {
       await loginWithGoogle();
       navigate("/dashboard");
     } catch (err) {
+      console.error("Google Login error:", err);
       alert("Google login failed");
     }
   };

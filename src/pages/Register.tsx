@@ -13,6 +13,7 @@ const Signup = () => {
       await signup(email, password);
       navigate("/dashboard");
     } catch (err) {
+      console.error("Signup error:", err);
       alert("Signup failed");
     }
   };
