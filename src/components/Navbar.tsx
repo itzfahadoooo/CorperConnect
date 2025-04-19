@@ -61,6 +61,7 @@ export default function Navbar() {
                 Healthcare
               </Link>
             </DropdownMenuItem>
+            
             <DropdownMenuItem>
               <Link to="/industries/finance" className="w-full">
                 Finance
