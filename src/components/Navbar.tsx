@@ -10,6 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logo from "@/assets/logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,32 +20,10 @@ export default function Navbar() {
       {/* Logo */}
       <div className="flex items-center">
         <Link to="/" className="flex items-center gap-2">
-          <div className="relative h-10 w-10">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-full w-full text-green-600"
-            >
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 5C13.66 5 15 6.34 15 8C15 9.66 13.66 11 12 11C10.34 11 9 9.66 9 8C9 6.34 10.34 5 12 5ZM12 19.2C9.5 19.2 7.29 17.92 6 15.98C6.03 13.99 10 12.9 12 12.9C13.99 12.9 17.97 13.99 18 15.98C16.71 17.92 14.5 19.2 12 19.2Z"
-                fill="currentColor"
-              />
-              <path
-                d="M8.5 8C8.5 9.38 9.62 10.5 11 10.5C12.38 10.5 13.5 9.38 13.5 8C13.5 6.62 12.38 5.5 11 5.5C9.62 5.5 8.5 6.62 8.5 8Z"
-                fill="currentColor"
-              />
-              <path
-                d="M13 8C13 9.1 12.1 10 11 10C9.9 10 9 9.1 9 8C9 6.9 9.9 6 11 6C12.1 6 13 6.9 13 8Z"
-                fill="white"
-              />
-              <path
-                d="M16 8C16 9.1 15.1 10 14 10C12.9 10 12 9.1 12 8C12 6.9 12.9 6 14 6C15.1 6 16 6.9 16 8Z"
-                fill="white"
-              />
-            </svg>
+          <div className="relative h-12 w-20">
+            <img src={logo} alt="" />
           </div>
-          <span className="text-xl font-bold text-green-600">
+          <span className="text-2xl font-bold text-[#008000]">
             CopperConnect
           </span>
         </Link>
