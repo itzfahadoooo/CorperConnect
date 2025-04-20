@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
+import ResetPassword from "./pages/ResetPassword";
 
 export default function App() {
   return (
@@ -28,6 +29,8 @@ export default function App() {
 
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/resetpassword" element={<ResetPassword />} />
+
       <Route
         path="/dashboard"
         element={
