@@ -1,4 +1,3 @@
-// src/pages/login.tsx
 import { useState } from "react";
 import { login, loginWithGoogle } from "@/firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
