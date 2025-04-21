@@ -83,19 +83,19 @@ export default function Navbar() {
       <div className="hidden items-center space-x-4 md:flex">
         <Button
           variant="outline"
-          className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 "
+          className="border-[#008000] text-[#008000] hover:bg-gray-200 cursor-pointer"
         >
           <Link
             to="/login"
-            className="text-base font-medium text-gray-800 hover:text-green-600"
+            className="text-base font-medium text-gray-800 "
           >
             Login
           </Link>
         </Button>
-        <Button className="bg-green-600 text-white hover:bg-green-700 ">
+        <Button className="bg-[#008000] text-white hover:bg-green-600 cursor-pointer">
           <Link
             to="/signup"
-            className="text-base font-medium text-gray-800 hover:text-green-600"
+            className="text-base font-medium text-white "
           >
             Sign Up
           </Link>
