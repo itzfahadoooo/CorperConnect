@@ -16,7 +16,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <nav className="flex items-center justify-between px-4 py-4 md:px-6 lg:px-8">
+    <nav className="flex items-center justify-between px-4 py-4 md:px-6 lg:px-8 shadow-md">
       {/* Logo */}
       <div className="flex items-center">
         <Link to="/" className="flex items-center gap-2">
