@@ -15,6 +15,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <main className="flex-1">
+        
         {/* Hero Section */}
         <section className="py-12 md:py-20 border-b">
           <div className="container mx-auto items-center grid gap-8 md:grid-cols-2 px-4">
