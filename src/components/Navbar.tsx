@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="flex items-center justify-between px-4 py-4 md:px-6 lg:px-8 shadow-md ">
       <div className="max-w-[95rem] mx-auto flex items-center justify-between w-full">
         {/* Logo */}
-        
+
         <div className="flex items-center">
           <Link to="/" className="flex items-center gap-2">
             <div className="relative h-12 w-16">
