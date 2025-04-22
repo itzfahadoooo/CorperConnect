@@ -15,7 +15,6 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <main className="flex-1">
-
         {/* Hero Section */}
         <section className="py-12 md:py-20 border-b">
           <div className="container mx-auto items-center grid gap-8 md:grid-cols-2 px-4">
@@ -24,8 +23,6 @@ export default function Home() {
                 Find Verified Housing & Connect with Fellow Corps Members
               </h1>
 
-
-              
               <p className="text-lg text-gray-600 text-center md:text-left">
                 Navigate your NYSC service year with confidence using our
                 community-driven platform for verified housing, shared
