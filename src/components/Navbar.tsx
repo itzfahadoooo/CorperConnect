@@ -188,13 +188,23 @@ export default function Navbar() {
                   className="w-full border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700"
                   onClick={() => setIsOpen(false)}
                 >
-                  Login
+                  <Link
+                    to="/login"
+                    className="text-base font-medium text-gray-800 "
+                  >
+                    Login
+                  </Link>
                 </Button>
                 <Button
                   className="w-full bg-green-600 text-white hover:bg-green-700"
                   onClick={() => setIsOpen(false)}
                 >
-                  Sign Up
+                  <Link
+                    to="/signup"
+                    className="text-base font-medium text-white "
+                  >
+                    Sign Up
+                  </Link>
                 </Button>
               </div>
             </div>
