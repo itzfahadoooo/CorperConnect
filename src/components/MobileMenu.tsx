@@ -1,61 +1,98 @@
-"use client"
+import { useState } from "react";
 
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Link } from "react-scroll";
+import { Button } from "./ui/button";
+import { Link as RouterLink } from "react-router-dom";
 
-interface MobileMenuProps {
-  links: {
-    href: string
-    label: string
-  }[]
-}
-
-const MobileMenu = ({ links }: MobileMenuProps) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+const MobileMenu = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="md:hidden">
+    <div>
+      {/* Mobile Menu Button */}
       <button
-        onClick={toggleMenu}
-        className="p-2 text-gray-600 hover:text-emerald-600 focus:outline-none"
-        aria-label="Toggle menu"
+        className="md:hidden"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close Menu" : "Open Menu"}
       >
-        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </button>
-
+        <svg
+          className="h-6 w-6 text-gray-800"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          {isOpen ? (
+            <path d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </button>{" "}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-white shadow-md z-50 border-b">
-          <div className="flex flex-col py-4 px-4">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="py-3 text-gray-800 hover:text-emerald-600 border-b border-gray-100 last:border-0"
-                onClick={toggleMenu}
+        <div className="absolute left-0 top-16 z-10 w-full bg-white p-4 shadow-lg md:hidden">
+          <div className="flex flex-col space-y-4">
+            <Link
+              to="features"
+              className="text-base font-medium text-gray-800 hover:text-green-600"
+              onClick={() => setIsOpen(false)}
+            >
+              Features
+            </Link>
+            <Link
+              to="how-it-works"
+              className="text-base font-medium text-gray-800 hover:text-green-600"
+              onClick={() => setIsOpen(false)}
+            >
+              How it works
+            </Link>
+            <Link
+              to="testimonials"
+              className="text-base font-medium text-gray-800 hover:text-green-600"
+              onClick={() => setIsOpen(false)}
+            >
+              Testimonials
+            </Link>
+            <Link
+              to="faq"
+              className="text-base font-medium text-gray-800 hover:text-green-600"
+              onClick={() => setIsOpen(false)}
+            >
+              Faq
+            </Link>
+            <div className="flex flex-col space-y-2 pt-2">
+              <RouterLink
+                to="/login"
+                className="text-base font-medium text-gray-800 "
               >
-                {link.label}
-              </a>
-            ))}
-            <div className="flex flex-col gap-3 mt-4 pt-4 border-t">
-              <a href="/login" className="text-center py-2 text-emerald-600 hover:text-emerald-700 font-medium">
-                Log in
-              </a>
-              <a
-                href="/signup"
-                className="text-center py-2 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md font-medium"
+                <Button
+                  variant="outline"
+                  className="w-full border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Login
+                </Button>
+              </RouterLink>
+              <RouterLink
+                to="/signup"
+                className="text-base font-medium text-white "
               >
-                Sign Up
-              </a>
+                <Button
+                  className="w-full bg-green-600 text-white hover:bg-green-700"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Sign Up
+                </Button>
+              </RouterLink>
             </div>
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default MobileMenu
+export default MobileMenu;
