@@ -10,6 +10,9 @@ import Navbar from "../components/Navbar";
 import img1 from "@/assets/image1.png";
 import img2 from "@/assets/image2.png";
 import Footer from "@/components/Footer";
+import pro1 from "@/assets/profile1.png";
+import pro2 from "@/assets/profile2.png";
+import pro3 from "@/assets/profile3.png";
 
 export default function Home() {
   return (
@@ -17,7 +20,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-12 md:py-20 border-b">
+        <section id="home" className="py-12 md:py-20 border-b">
           <div className="container mx-auto items-center grid gap-8 md:grid-cols-2 px-4">
             <div className="space-y-6 md:space-y-8">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center md:text-left">
@@ -30,10 +33,10 @@ export default function Home() {
                 experiences, and location reviews.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-md text-sm font-medium">
+                <button className="bg-[#008000] hover:bg-[#228B22] text-white px-6 py-3 rounded-md text-sm font-medium cursor-pointer">
                   Find Housing Now
                 </button>
-                <button className="border border-gray-300 bg-white hover:bg-gray-50 px-6 py-3 rounded-md text-sm font-medium">
+                <button className="border border-gray-300 bg-white hover:bg-gray-200 px-6 py-3 rounded-md text-sm font-medium cursor-pointer">
                   Explore Locations
                 </button>
               </div>
@@ -56,9 +59,9 @@ export default function Home() {
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="flex flex-col items-start gap-3 p-6 rounded-lg border">
-                <div className="p-2 rounded-full bg-emerald-100 text-emerald-600">
-                  <HomeIcon className="h-6 w-6" />
+              <div className="flex flex-col items-start gap-3 p-6 rounded-lg border cursor-pointer">
+                <div className="p-2 rounded-full bg-emerald-100 text-[#008000]">
+                  <HomeIcon className="h-6 w-6 " />
                 </div>
                 <h3 className="text-lg font-semibold">
                   Verified Housing Options
@@ -69,8 +72,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-start gap-3 p-6 rounded-lg border">
-                <div className="p-2 rounded-full bg-emerald-100 text-emerald-600">
+              <div className="flex flex-col items-start gap-3 p-6 rounded-lg border cursor-pointer">
+                <div className="p-2 rounded-full bg-emerald-100 text-[#008000]">
                   <MapPin className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold">Location Reviews</h3>
@@ -80,8 +83,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-start gap-3 p-6 rounded-lg border">
-                <div className="p-2 rounded-full bg-emerald-100 text-emerald-600">
+              <div className="flex flex-col items-start gap-3 p-6 rounded-lg border cursor-pointer">
+                <div className="p-2 rounded-full bg-emerald-100 text-[#008000]">
                   <Users className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold">Community Support</h3>
@@ -91,8 +94,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-start gap-3 p-6 rounded-lg border">
-                <div className="p-2 rounded-full bg-emerald-100 text-emerald-600">
+              <div className="flex flex-col items-start gap-3 p-6 rounded-lg border cursor-pointer">
+                <div className="p-2 rounded-full bg-emerald-100 text-[#008000]">
                   <Star className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold">Survival Tips</h3>
@@ -127,7 +130,7 @@ export default function Home() {
 
               <div className="space-y-8">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-medium">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#008000] text-white flex items-center justify-center font-medium">
                     1
                   </div>
                   <div>
@@ -142,7 +145,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-medium">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#008000] text-white flex items-center justify-center font-medium">
                     2
                   </div>
                   <div>
@@ -157,7 +160,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-medium">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#008000] text-white flex items-center justify-center font-medium">
                     3
                   </div>
                   <div>
@@ -172,7 +175,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-medium">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#008000] text-white flex items-center justify-center font-medium">
                     4
                   </div>
                   <div>
@@ -213,7 +216,9 @@ export default function Home() {
                   was already verified by other corps members."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-200"></div>
+                  <div className="w-10 h-10 rounded-full bg-slate-200">
+                    <img src={pro1} alt="" />
+                  </div>
                   <div>
                     <p className="font-medium">Chioma A.</p>
                     <p className="text-sm text-gray-600">
@@ -238,7 +243,7 @@ export default function Home() {
                   community of corps members in my area."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-200"></div>
+                  <div className="w-10 h-10 rounded-full bg-slate-200"><img src={pro2} alt="" /></div>
                   <div>
                     <p className="font-medium">Emeka O.</p>
                     <p className="text-sm text-gray-600">
@@ -263,7 +268,7 @@ export default function Home() {
                   other female corps members in my area for support."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-200"></div>
+                  <div className="w-10 h-10 rounded-full bg-slate-200"><img src={pro3} alt="" /></div>
                   <div>
                     <p className="font-medium">Amina B.</p>
                     <p className="text-sm text-gray-600">
@@ -339,7 +344,7 @@ export default function Home() {
 
                   <button
                     type="submit"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+                    className="w-full bg-[#008000] hover:bg-[#228B22] text-white px-4 py-2 rounded-md text-sm font-medium cursor-pointer"
                   >
                     Sign Up Free
                   </button>
@@ -363,7 +368,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 p-2 rounded-full bg-emerald-100 text-emerald-600 h-fit">
+                <div className="flex-shrink-0 p-2 rounded-full bg-emerald-100 text-[#008000] h-fit">
                   <Shield className="h-6 w-6" />
                 </div>
                 <div>
@@ -379,7 +384,7 @@ export default function Home() {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 p-2 rounded-full bg-emerald-100 text-emerald-600 h-fit">
+                <div className="flex-shrink-0 p-2 rounded-full bg-emerald-100 text-[#008000] h-fit">
                   <Users className="h-6 w-6" />
                 </div>
                 <div>
@@ -395,7 +400,7 @@ export default function Home() {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 p-2 rounded-full bg-emerald-100 text-emerald-600 h-fit">
+                <div className="flex-shrink-0 p-2 rounded-full bg-emerald-100 text-[#008000] h-fit">
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
@@ -410,7 +415,7 @@ export default function Home() {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 p-2 rounded-full bg-emerald-100 text-emerald-600 h-fit">
+                <div className="flex-shrink-0 p-2 rounded-full bg-emerald-100 text-[#008000] h-fit">
                   <ArrowRight className="h-6 w-6" />
                 </div>
                 <div>

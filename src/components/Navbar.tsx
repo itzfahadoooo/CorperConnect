@@ -1,16 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import logo from "@/assets/logo.png";
+import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -21,7 +16,7 @@ export default function Navbar() {
         {/* Logo */}
 
         <div className="flex items-center">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="home" className="flex items-center gap-2 cursor-pointer">
             <div className="relative h-12 w-16">
               <img src={logo} alt="" />
             </div>
@@ -34,68 +29,53 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden items-center space-x-8 md:flex">
           <Link
-            to="/"
-            className="text-base font-medium text-gray-800 hover:text-green-600"
+            to="features"
+            className="text-base font-medium text-gray-800 hover:text-green-600 cursor-pointer"
           >
-            Home
+            Features
           </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-base font-medium text-gray-800 hover:text-green-600">
-              Industries
-              <ChevronDown className="h-4 w-4 relative top-[2px]" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>
-                <Link to="/industries/technology" className="w-full">
-                  Technology
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link to="/industries/healthcare" className="w-full">
-                  Healthcare
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link to="/industries/finance" className="w-full">
-                  Finance
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link to="/industries/education" className="w-full">
-                  Education
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+
           <Link
-            to="/blog"
-            className="text-base font-medium text-gray-800 hover:text-green-600"
+            to="how-it-works"
+            className="text-base font-medium text-gray-800 hover:text-green-600 cursor-pointer"
           >
-            Blog
+            How it works
           </Link>
           <Link
-            to="/pricing"
-            className="text-base font-medium text-gray-800 hover:text-green-600"
+            to="testimonials"
+            className="text-base font-medium text-gray-800 hover:text-green-600 cursor-pointer"
           >
-            Pricing
+            Testimonials
+          </Link>
+          <Link
+            to="faq"
+            className="text-base font-medium text-gray-800 hover:text-green-600 cursor-pointer"
+          >
+            Faq
           </Link>
         </div>
 
         {/* Auth Buttons */}
         <div className="hidden items-center space-x-4 md:flex">
-          <Button
-            variant="outline"
-            className="border-[#008000] text-[#008000] hover:bg-gray-200 cursor-pointer"
+          <RouterLink
+            to="/login"
+            className="text-base font-medium text-gray-800 "
           >
-            <Link to="/login" className="text-base font-medium text-gray-800 ">
+            <Button
+              variant="outline"
+              className="border-[#008000] text-[#008000] hover:bg-gray-200 cursor-pointer"
+            >
               Login
-            </Link>
-          </Button>
-          <Button className="bg-[#008000] text-white hover:bg-green-600 cursor-pointer">
-            <Link to="/signup" className="text-base font-medium text-white ">
+            </Button>
+          </RouterLink>
+          <RouterLink
+            to="/signup"
+            className="text-base font-medium text-white "
+          >
+            <Button className="bg-[#008000] text-white hover:bg-[#228B22] cursor-pointer">
               Sign Up
-            </Link>
-          </Button>
+            </Button>
+          </RouterLink>
         </div>
 
         {/* Mobile Menu Button */}
