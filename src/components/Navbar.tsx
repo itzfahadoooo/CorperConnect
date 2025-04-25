@@ -16,7 +16,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <nav className="flex items-center justify-between px-4 py-4 md:px-6 lg:px-8 shadow-md ">
+    <nav className="flex items-center justify-between px-4 py-4 md:px-6 lg:px-8 shadow-md sticky top-0 bg-white z-50">
       <div className="max-w-[95rem] mx-auto flex items-center justify-between w-full">
         {/* Logo */}
 

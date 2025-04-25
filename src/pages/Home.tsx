@@ -9,6 +9,7 @@ import {
 import Navbar from "../components/Navbar";
 import img1 from "@/assets/image1.png";
 import img2 from "@/assets/image2.png";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -495,6 +496,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <Footer/>
     </main>
   );
 }
