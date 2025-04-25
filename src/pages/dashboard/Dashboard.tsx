@@ -1,7 +1,5 @@
 // src/pages/dashboard.tsx
-// import { useAuth } from "@/contexts/AuthContext";
-// import { logout } from "@/firebase/auth";
-// import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { Building, MapPin, MessageSquare, Users } from "lucide-react"
 import DashboardLayout from "../../components/dashboard/DashboardLayout"
 import StatCard from "../../components/dashboard/StatCard"
@@ -9,13 +7,8 @@ import HousingCard from "../../components/dashboard/HousingCard"
 import ActivityCard from "../../components/dashboard/ActivityCard"
 
 const Dashboard = () => {
-  // const { user } = useAuth();
-  // const navigate = useNavigate();
-
-  // const handleLogout = async () => {
-  //   await logout();
-  //   navigate("/login");
-  // };
+  const { user } = useAuth();
+  
 
   const housingListings = [
     {
@@ -82,7 +75,8 @@ const Dashboard = () => {
     <DashboardLayout>
       <div className="mb-6">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-        <p className="text-gray-600">Welcome back, John! Here's what's happening in your area.</p>
+        <p className="text-gray-600">  Welcome back, {user?.displayName || user?.email || "Corper"}! Here's what's happening in your area.
+        </p>
       </div>
 
       {/* Stats */}
