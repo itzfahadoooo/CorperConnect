@@ -19,12 +19,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout } from "@/firebase/auth";
 import { useAuth } from "@/contexts/AuthContext";
+import logo from "@/assets/logo.png";
 
 const Sidebar = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCollapsed, setIsCollapsed] = useState(false)
-
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const { user } = useAuth();
 
@@ -50,10 +50,9 @@ const Sidebar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  
   const toggleCollapse = () => {
-    setIsCollapsed(!isCollapsed)
-  }
+    setIsCollapsed(!isCollapsed);
+  };
 
   const navigate = useNavigate();
 
@@ -62,12 +61,11 @@ const Sidebar = () => {
     navigate("/login");
   };
 
-
   useEffect(() => {
     // Dispatch custom event for the layout to listen to
-    const event = new CustomEvent("sidebarToggle", { detail: { isCollapsed } })
-    window.dispatchEvent(event)
-  }, [isCollapsed])
+    const event = new CustomEvent("sidebarToggle", { detail: { isCollapsed } });
+    window.dispatchEvent(event);
+  }, [isCollapsed]);
 
   return (
     <>
@@ -88,20 +86,31 @@ const Sidebar = () => {
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         } ${isCollapsed ? "w-20" : "w-64"}`}
       >
-        <div className="h-full flex flex-col">
+        <div
+          className={`h-full flex flex-col ${isCollapsed && "items-center"}`}
+        >
           {/* Logo */}
+
           <div className="p-4 border-b">
             <Link to="/dashboard" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">CC</span>
+              <div className="w-8 h-8 rounded-full flex items-center justify-center">
+                <img src={logo} alt="" />
               </div>
-              {!isCollapsed && <span className="font-bold text-lg text-primary">CorperConnect</span>}
+              {!isCollapsed && (
+                <span className="font-bold text-lg text-[#008000]">
+                  CorperConnect
+                </span>
+              )}
             </Link>
           </div>
 
           {/* User info */}
           <div className="p-4 border-b">
-            <div className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"}`}>
+            <div
+              className={`flex items-center ${
+                isCollapsed ? "justify-center" : "gap-3"
+              }`}
+            >
               {user?.photoURL ? (
                 <img
                   src={user.photoURL}
@@ -113,15 +122,17 @@ const Sidebar = () => {
                   <span className="text-gray-600 font-medium">{initials}</span>
                 </div>
               )}
-            
-                {!isCollapsed && (
-                  <div>
-                    <p className="font-medium text-sm">
-                      {user?.displayName || "No Name"}
-                    </p>
-                    <p className="text-xs text-gray-500">Lagos State • 2023 Batch A</p>
-                  </div>
-                )}
+
+              {!isCollapsed && (
+                <div>
+                  <p className="font-medium text-sm">
+                    {user?.displayName || "No Name"}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    Lagos State • 2023 Batch A
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
