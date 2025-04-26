@@ -33,7 +33,7 @@ const TopBar = () => {
         {/* Right side actions */}
         <div className="flex items-center gap-4">
           <Link
-            to="/dashboard/notifications"
+            to="/dashboard"
             className="relative p-2 text-gray-600 hover:text-emerald-600 hover:bg-gray-100 rounded-full"
           >
             <Bell size={20} />
