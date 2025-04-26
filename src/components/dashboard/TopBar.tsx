@@ -1,12 +1,25 @@
-import { Bell, Search } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Bell, Search } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import { useAuth } from "@/contexts/AuthContext";
 
 const TopBar = () => {
+  const { user } = useAuth();
+
+  const initials = user?.displayName
+    ? user.displayName
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+    : "NA";
+
   return (
     <header className="bg-white border-b sticky top-0 z-10">
-      <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+      <div className="flex items-center justify-end lg:justify-between h-16 px-4 sm:px-6">
         {/* Search */}
-        <div className="relative w-full max-w-md">
+
+        <div className="relative w-full max-w-56 md:max-w-md">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <Search size={18} className="text-gray-400" />
           </div>
@@ -32,12 +45,14 @@ const TopBar = () => {
             to="/dashboard/profile"
             className="lg:hidden relative w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center"
           >
-            <span className="text-gray-600 font-medium text-sm">JD</span>
+            <span className="text-gray-600 font-medium text-sm">
+              {initials}
+            </span>
           </Link>
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default TopBar
+export default TopBar;
