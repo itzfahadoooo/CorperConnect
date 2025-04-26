@@ -21,7 +21,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         {/* Hero Section */}
-        <section id="home" className="py-12 md:py-20 border-b">
+        <section id="home" className="py-12  border-b">
           <div className="container mx-auto items-center grid gap-8 md:grid-cols-2 px-4">
             <div className="space-y-6 md:space-y-8">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center md:text-left">
@@ -35,12 +35,12 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Link to="/dashboard">
-                  <button className="bg-[#008000] hover:bg-[#228B22] text-white px-6 py-3 rounded-md text-sm font-medium cursor-pointer ">
+                  <button className="bg-[#008000] hover:bg-[#228B22] text-white px-6 py-3 rounded-md text-sm font-medium cursor-pointer w-full">
                     Find Housing Now
                   </button>
                 </Link>
                 <Link to="/dashboard">
-                  <button className="border border-gray-300 bg-white hover:bg-gray-200 px-6 py-3 rounded-md text-sm font-medium cursor-pointer">
+                  <button className="border border-gray-300 bg-white hover:bg-gray-200 px-6 py-3 rounded-md text-sm font-medium cursor-pointer w-full">
                     Explore Locations
                   </button>
                 </Link>
