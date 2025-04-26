@@ -12,8 +12,10 @@ import {
   LogOut,
   Menu,
   X,
+  PanelRightOpen,
+  PanelRightClose,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout } from "@/firebase/auth";
 import { useAuth } from "@/contexts/AuthContext";
@@ -21,6 +23,8 @@ import { useAuth } from "@/contexts/AuthContext";
 const Sidebar = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false)
+
 
   const { user } = useAuth();
 
@@ -46,12 +50,24 @@ const Sidebar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed)
+  }
+
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     await logout();
     navigate("/login");
   };
+
+
+  useEffect(() => {
+    // Dispatch custom event for the layout to listen to
+    const event = new CustomEvent("sidebarToggle", { detail: { isCollapsed } })
+    window.dispatchEvent(event)
+  }, [isCollapsed])
 
   return (
     <>
@@ -68,9 +84,9 @@ const Sidebar = () => {
 
       {/* Sidebar for desktop */}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 w-64 bg-white border-r transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 bg-white border-r transform transition-all duration-300 ease-in-out lg:translate-x-0 ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        } ${isCollapsed ? "w-20" : "w-64"}`}
       >
         <div className="h-full flex flex-col">
           {/* Logo */}
@@ -79,15 +95,13 @@ const Sidebar = () => {
               <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">CC</span>
               </div>
-              <span className="font-bold text-lg text-emerald-700">
-                CorperConnect
-              </span>
+              {!isCollapsed && <span className="font-bold text-lg text-primary">CorperConnect</span>}
             </Link>
           </div>
 
           {/* User info */}
           <div className="p-4 border-b">
-            <div className="flex items-center gap-3">
+            <div className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"}`}>
               {user?.photoURL ? (
                 <img
                   src={user.photoURL}
@@ -99,15 +113,15 @@ const Sidebar = () => {
                   <span className="text-gray-600 font-medium">{initials}</span>
                 </div>
               )}
-
-              <div>
-                <p className="font-medium text-sm">
-                  {user?.displayName || "No Name"}
-                </p>
-                <p className="text-xs text-gray-500">
-                  Lagos State • 2023 Batch A
-                </p>
-              </div>
+            
+                {!isCollapsed && (
+                  <div>
+                    <p className="font-medium text-sm">
+                      {user?.displayName || "No Name"}
+                    </p>
+                    <p className="text-xs text-gray-500">Lagos State • 2023 Batch A</p>
+                  </div>
+                )}
             </div>
           </div>
 
@@ -128,15 +142,33 @@ const Sidebar = () => {
                           : "text-gray-600 hover:bg-gray-100"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
+                      title={isCollapsed ? item.name : ""}
                     >
                       <Icon size={18} />
-                      <span>{item.name}</span>
+                      {!isCollapsed && <span>{item.name}</span>}
                     </Link>
                   </li>
                 );
               })}
             </ul>
           </nav>
+
+          {/* Collapse Toggle */}
+          <div className="p-4 border-t ">
+            <button
+              onClick={toggleCollapse}
+              className="flex cursor-pointer items-center justify-center w-full gap-3 px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100"
+            >
+              {isCollapsed ? (
+                <PanelRightOpen size={18} />
+              ) : (
+                <>
+                  <PanelRightClose size={18} />
+                  {/* <span>Collapse Sidebar</span> */}
+                </>
+              )}
+            </button>
+          </div>
 
           {/* Logout */}
           <div
@@ -151,9 +183,10 @@ const Sidebar = () => {
             <Link
               to="/logout"
               className="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-100"
+              title={isCollapsed ? "Logout" : ""}
             >
               <LogOut size={18} />
-              <span>Logout</span>
+              {!isCollapsed && <span>Logout</span>}
             </Link>
           </div>
         </div>
