@@ -5,6 +5,12 @@ import DashboardLayout from "../../components/dashboard/DashboardLayout"
 import StatCard from "../../components/dashboard/StatCard"
 import HousingCard from "../../components/dashboard/HousingCard"
 import ActivityCard from "../../components/dashboard/ActivityCard"
+import house1 from "@/assets/house1.jpg"
+import house2 from "@/assets/house2.jpg"
+import house3 from "@/assets/house3.jpg"
+import pro1 from "@/assets/profile1.png";
+import pro2 from "@/assets/profile2.png";
+import pro3 from "@/assets/profile3.png";
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -17,7 +23,7 @@ const Dashboard = () => {
       location: "Ikeja, Lagos",
       price: 120000,
       rating: 4.8,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house1,
       verified: true,
       distance: "2.5km from PPA",
     },
@@ -27,7 +33,7 @@ const Dashboard = () => {
       location: "Wuse, Abuja",
       price: 85000,
       rating: 4.5,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house2,
       verified: true,
     },
     {
@@ -36,34 +42,34 @@ const Dashboard = () => {
       location: "GRA, Port Harcourt",
       price: 65000,
       rating: 4.2,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house3,
       verified: false,
     },
   ]
 
   const recentActivities = [
     {
-      avatar: "/placeholder.svg",
+      avatar: pro1,
       name: "Chioma Okafor",
       action: "posted a new housing review",
       time: "2 hours ago",
       content: "The apartment is very close to the local government secretariat and has good security.",
     },
     {
-      avatar: "/placeholder.svg",
+      avatar: pro2,
       name: "Emmanuel Adebayo",
       action: "asked a question about your area",
       time: "Yesterday",
       content: "Is there any reliable transport from Surulere to Ikeja in the early morning?",
     },
     {
-      avatar: "/placeholder.svg",
+      avatar: pro3,
       name: "Fatima Ibrahim",
       action: "added a new housing listing",
       time: "2 days ago",
     },
     {
-      avatar: "/placeholder.svg",
+      avatar: pro2,
       name: "David Okonkwo",
       action: "replied to your comment",
       time: "3 days ago",
