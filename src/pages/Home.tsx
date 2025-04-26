@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import pro1 from "@/assets/profile1.png";
 import pro2 from "@/assets/profile2.png";
 import pro3 from "@/assets/profile3.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -33,15 +34,19 @@ export default function Home() {
                 experiences, and location reviews.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <button className="bg-[#008000] hover:bg-[#228B22] text-white px-6 py-3 rounded-md text-sm font-medium cursor-pointer">
-                  Find Housing Now
-                </button>
-                <button className="border border-gray-300 bg-white hover:bg-gray-200 px-6 py-3 rounded-md text-sm font-medium cursor-pointer">
-                  Explore Locations
-                </button>
+                <Link to="/dashboard">
+                  <button className="bg-[#008000] hover:bg-[#228B22] text-white px-6 py-3 rounded-md text-sm font-medium cursor-pointer ">
+                    Find Housing Now
+                  </button>
+                </Link>
+                <Link to="/dashboard">
+                  <button className="border border-gray-300 bg-white hover:bg-gray-200 px-6 py-3 rounded-md text-sm font-medium cursor-pointer">
+                    Explore Locations
+                  </button>
+                </Link>
               </div>
             </div>
-            <div className="relative rounded-xl overflow-hidden h-[200px] md:h-[500px] lg:h-[600px]">
+            <div className="relative rounded-xl overflow-hidden h-[300px] md:h-[500px] lg:h-[600px]">
               <img
                 src={img1}
                 alt="Corps members finding housing"
@@ -120,7 +125,7 @@ export default function Home() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative rounded-xl overflow-hidden h-[200px] md:h-[600px] lg:h-[700px]">
+              <div className="relative rounded-xl overflow-hidden h-[400px] md:h-[600px] lg:h-[700px]">
                 <img
                   src={img2}
                   alt="Corps members finding housing"
@@ -243,7 +248,9 @@ export default function Home() {
                   community of corps members in my area."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-200"><img src={pro2} alt="" /></div>
+                  <div className="w-10 h-10 rounded-full bg-slate-200">
+                    <img src={pro2} alt="" />
+                  </div>
                   <div>
                     <p className="font-medium">Emeka O.</p>
                     <p className="text-sm text-gray-600">
@@ -268,7 +275,9 @@ export default function Home() {
                   other female corps members in my area for support."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-200"><img src={pro3} alt="" /></div>
+                  <div className="w-10 h-10 rounded-full bg-slate-200">
+                    <img src={pro3} alt="" />
+                  </div>
                   <div>
                     <p className="font-medium">Amina B.</p>
                     <p className="text-sm text-gray-600">
@@ -501,7 +510,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </main>
   );
 }
