@@ -5,7 +5,10 @@ import Signup from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ResetPassword from "./pages/ResetPassword";
-import Housing from "./pages/dashboard/Housing";
+import Housing from "./pages/dashboard/housing/Housing";
+import Locations from "./pages/dashboard/locations/Locations";
+
+import Id from "./pages/dashboard/housing/Id";
 
 export default function App() {
   return (
@@ -24,7 +27,8 @@ export default function App() {
           }
         >
           <Route path="housing" element={<Housing />} />
-          <Route path="locations" element={<Dashboard />} />
+          <Route path="/dashboard/housing/:id" element={<Id />} />
+          <Route path="locations" element={<Locations/>} />
           <Route path="community" element={<Dashboard />} />
           <Route path="messages" element={<Dashboard />} />
           <Route path="notifications" element={<Dashboard />} />

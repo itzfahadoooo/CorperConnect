@@ -1,12 +1,15 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Filter, MapPin, Search } from "lucide-react"
-import DashboardLayout from "../../components/dashboard/DashboardLayout"
-import HousingCard from "../../components/dashboard/HousingCard"
+import { useState } from "react";
+import { Filter, MapPin, Search } from "lucide-react";
+import DashboardLayout from "../../../components/dashboard/DashboardLayout";
+import HousingCard from "../../../components/dashboard/HousingCard";
+import house1 from "@/assets/house1.jpg";
+import house2 from "@/assets/house2.jpg";
+import house3 from "@/assets/house3.jpg";
 
 const Housing = () => {
-  const [filterOpen, setFilterOpen] = useState(false)
+  const [filterOpen, setFilterOpen] = useState(false);
 
   // Sample data
   const housingListings = [
@@ -16,7 +19,7 @@ const Housing = () => {
       location: "Ikeja, Lagos",
       price: 120000,
       rating: 4.8,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house1,
       verified: true,
       distance: "2.5km from PPA",
     },
@@ -26,7 +29,7 @@ const Housing = () => {
       location: "Wuse, Abuja",
       price: 85000,
       rating: 4.5,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house2,
       verified: true,
     },
     {
@@ -35,7 +38,7 @@ const Housing = () => {
       location: "GRA, Port Harcourt",
       price: 65000,
       rating: 4.2,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house3,
       verified: false,
     },
     {
@@ -44,7 +47,7 @@ const Housing = () => {
       location: "Bodija, Ibadan",
       price: 55000,
       rating: 4.0,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house1,
       verified: true,
     },
     {
@@ -53,7 +56,7 @@ const Housing = () => {
       location: "Asaba, Delta",
       price: 90000,
       rating: 4.7,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house2,
       verified: true,
     },
     {
@@ -62,16 +65,18 @@ const Housing = () => {
       location: "Kaduna South, Kaduna",
       price: 45000,
       rating: 3.9,
-      imageUrl: "/placeholder.svg",
+      imageUrl: house3,
       verified: false,
     },
-  ]
+  ];
 
   return (
     <DashboardLayout>
       <div className="mb-6">
         <h1 className="text-2xl font-bold">Housing Listings</h1>
-        <p className="text-gray-600">Find verified and affordable housing options near your PPA.</p>
+        <p className="text-gray-600">
+          Find verified and affordable housing options near your PPA.
+        </p>
       </div>
 
       {/* Search and filters */}
@@ -117,7 +122,9 @@ const Housing = () => {
         {filterOpen && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Price Range
+              </label>
               <div className="flex items-center gap-2">
                 <input
                   type="number"
@@ -134,7 +141,9 @@ const Housing = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Housing Type</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Housing Type
+              </label>
               <select className="block w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
                 <option value="">All Types</option>
                 <option value="single-room">Single Room</option>
@@ -146,7 +155,9 @@ const Housing = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Verification</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Verification
+              </label>
               <select className="block w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
                 <option value="">All Listings</option>
                 <option value="verified">Verified Only</option>
@@ -163,7 +174,7 @@ const Housing = () => {
         ))}
       </div>
     </DashboardLayout>
-  )
-}
+  );
+};
 
-export default Housing
+export default Housing;

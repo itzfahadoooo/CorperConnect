@@ -45,6 +45,15 @@ const Dashboard = () => {
       imageUrl: house3,
       verified: false,
     },
+    {
+      id: "4",
+      title: "Shared 3 Bedroom Flat with Corps Members",
+      location: "GRA, Port Harcourt",
+      price: 65000,
+      rating: 4.2,
+      imageUrl: house3,
+      verified: false,
+    },
   ];
 
   const recentActivities = [

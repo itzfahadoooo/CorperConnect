@@ -58,7 +58,7 @@ const Sidebar = () => {
 
   const handleLogout = async () => {
     await logout();
-    navigate("/login");
+    navigate("/");
   };
 
   useEffect(() => {
