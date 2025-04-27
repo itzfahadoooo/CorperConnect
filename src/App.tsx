@@ -5,6 +5,7 @@ import Signup from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ResetPassword from "./pages/ResetPassword";
+import Housing from "./pages/dashboard/Housing";
 
 export default function App() {
   return (
@@ -21,7 +22,15 @@ export default function App() {
               <Dashboard />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route path="housing" element={<Housing />} />
+          <Route path="locations" element={<Dashboard />} />
+          <Route path="community" element={<Dashboard />} />
+          <Route path="messages" element={<Dashboard />} />
+          <Route path="notifications" element={<Dashboard />} />
+          <Route path="settings" element={<Dashboard />} />
+          <Route path="*" element={<Dashboard />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

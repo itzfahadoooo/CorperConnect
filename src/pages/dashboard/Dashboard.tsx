@@ -1,20 +1,20 @@
-// src/pages/dashboard.tsx
+import { Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { Building, MapPin, MessageSquare, Users } from "lucide-react"
-import DashboardLayout from "../../components/dashboard/DashboardLayout"
-import StatCard from "../../components/dashboard/StatCard"
-import HousingCard from "../../components/dashboard/HousingCard"
-import ActivityCard from "../../components/dashboard/ActivityCard"
-import house1 from "@/assets/house1.jpg"
-import house2 from "@/assets/house2.jpg"
-import house3 from "@/assets/house3.jpg"
+import { Building, MapPin, MessageSquare, Users } from "lucide-react";
+import DashboardLayout from "../../components/dashboard/DashboardLayout";
+import StatCard from "../../components/dashboard/StatCard";
+import HousingCard from "../../components/dashboard/HousingCard";
+import ActivityCard from "../../components/dashboard/ActivityCard";
+import house1 from "@/assets/house1.jpg";
+import house2 from "@/assets/house2.jpg";
+import house3 from "@/assets/house3.jpg";
 import pro1 from "@/assets/profile1.png";
 import pro2 from "@/assets/profile2.png";
 import pro3 from "@/assets/profile3.png";
 
 const Dashboard = () => {
   const { user } = useAuth();
-  
+  const location = useLocation(); // Get the current route
 
   const housingListings = [
     {
@@ -45,7 +45,7 @@ const Dashboard = () => {
       imageUrl: house3,
       verified: false,
     },
-  ]
+  ];
 
   const recentActivities = [
     {
@@ -53,14 +53,16 @@ const Dashboard = () => {
       name: "Chioma Okafor",
       action: "posted a new housing review",
       time: "2 hours ago",
-      content: "The apartment is very close to the local government secretariat and has good security.",
+      content:
+        "The apartment is very close to the local government secretariat and has good security.",
     },
     {
       avatar: pro2,
       name: "Emmanuel Adebayo",
       action: "asked a question about your area",
       time: "Yesterday",
-      content: "Is there any reliable transport from Surulere to Ikeja in the early morning?",
+      content:
+        "Is there any reliable transport from Surulere to Ikeja in the early morning?",
     },
     {
       avatar: pro3,
@@ -73,87 +75,104 @@ const Dashboard = () => {
       name: "David Okonkwo",
       action: "replied to your comment",
       time: "3 days ago",
-      content: "Yes, there's a good restaurant near the NYSC office that serves local food at affordable prices.",
+      content:
+        "Yes, there's a good restaurant near the NYSC office that serves local food at affordable prices.",
     },
-  ]
+  ];
 
-  return (
-    <DashboardLayout>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <p className="text-gray-600">  Welcome back, {user?.displayName || user?.email || "Corper"}! Here's what's happening in your area.
-        </p>
-      </div>
-
-      {/* Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <StatCard title="Available Housing" value={42} icon={Building} trend={{ value: "8%", isPositive: true }} />
-        <StatCard
-          title="Corps Members Nearby"
-          value={156}
-          icon={Users}
-          iconColor="text-blue-600"
-          iconBgColor="bg-blue-100"
-          trend={{ value: "12%", isPositive: true }}
-        />
-        <StatCard
-          title="Local Communities"
-          value={8}
-          icon={MapPin}
-          iconColor="text-purple-600"
-          iconBgColor="bg-purple-100"
-        />
-        <StatCard
-          title="Unread Messages"
-          value={5}
-          icon={MessageSquare}
-          iconColor="text-amber-600"
-          iconBgColor="bg-amber-100"
-        />
-      </div>
-
-      {/* Main content */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Housing listings */}
-        <div className="lg:col-span-2">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold">Recommended Housing</h2>
-            <a href="/dashboard/housing" className="text-sm text-emerald-600 hover:underline">
-              View all
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {housingListings.map((listing) => (
-              <HousingCard key={listing.id} {...listing} />
-            ))}
-          </div>
+  // Render the main dashboard content only for the base "/dashboard" route
+  if (location.pathname === "/dashboard") {
+    return (
+      <DashboardLayout>
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold">Dashboard</h1>
+          <p className="text-gray-600">
+            Welcome back, {user?.displayName || user?.email || "Corper"}! Here's
+            what's happening in your area.
+          </p>
         </div>
 
-        {/* Activity feed */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-lg border shadow-sm">
-            <div className="px-4 py-3 border-b">
-              <h2 className="font-semibold">Recent Activity</h2>
-            </div>
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <StatCard
+            title="Available Housing"
+            value={42}
+            icon={Building}
+            trend={{ value: "8%", isPositive: true }}
+          />
+          <StatCard
+            title="Corps Members Nearby"
+            value={156}
+            icon={Users}
+            iconColor="text-blue-600"
+            iconBgColor="bg-blue-100"
+            trend={{ value: "12%", isPositive: true }}
+          />
+          <StatCard
+            title="Local Communities"
+            value={8}
+            icon={MapPin}
+            iconColor="text-purple-600"
+            iconBgColor="bg-purple-100"
+          />
+          <StatCard
+            title="Unread Messages"
+            value={5}
+            icon={MessageSquare}
+            iconColor="text-amber-600"
+            iconBgColor="bg-amber-100"
+          />
+        </div>
 
-            <div className="p-4">
-              {recentActivities.map((activity, index) => (
-                <ActivityCard key={index} {...activity} />
-              ))}
-
+        {/* Main content */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Housing listings */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-semibold">Recommended Housing</h2>
               <a
-                href="/dashboard/community"
-                className="block text-center text-sm text-emerald-600 hover:underline mt-4"
+                href="/dashboard/housing"
+                className="text-sm text-emerald-600 hover:underline"
               >
-                View all activity
+                View all
               </a>
             </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {housingListings.map((listing) => (
+                <HousingCard key={listing.id} {...listing} />
+              ))}
+            </div>
+          </div>
+
+          {/* Activity feed */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-lg border shadow-sm">
+              <div className="px-4 py-3 border-b">
+                <h2 className="font-semibold">Recent Activity</h2>
+              </div>
+
+              <div className="p-4">
+                {recentActivities.map((activity, index) => (
+                  <ActivityCard key={index} {...activity} />
+                ))}
+
+                <a
+                  href="/dashboard/community"
+                  className="block text-center text-sm text-emerald-600 hover:underline mt-4"
+                >
+                  View all activity
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </DashboardLayout>
-  )
+      </DashboardLayout>
+    );
+  }
+
+  // Render child routes for other paths (e.g., "/dashboard/housing")
+  return <Outlet />;
 };
 
 export default Dashboard;
