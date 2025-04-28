@@ -447,6 +447,7 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               Frequently Asked Questions
             </h2>
+            
 
             <div className="max-w-3xl mx-auto space-y-6">
               <div className="bg-white p-6 rounded-lg border">
