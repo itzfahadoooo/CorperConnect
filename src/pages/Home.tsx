@@ -453,6 +453,7 @@ export default function Home() {
 
             <div className="max-w-3xl mx-auto space-y-6">
               <div className="bg-white p-6 rounded-lg border">
+                
                 <h3 className="text-lg font-semibold mb-2">
                   What is CorperConnect?
                 </h3>
