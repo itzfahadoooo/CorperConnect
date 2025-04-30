@@ -69,10 +69,11 @@ const Sidebar = () => {
 
   return (
     <>
-    
+
       {/* Mobile menu button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <button
+        
           onClick={toggleMobileMenu}
           className="p-2 rounded-md bg-emerald-600 text-white"
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
