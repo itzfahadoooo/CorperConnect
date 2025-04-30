@@ -457,9 +457,12 @@ export default function Home() {
                 <h3 className="text-lg font-semibold mb-2">
                   What is CorperConnect?
                 </h3>
+
+                
+
                 
                 <p className="text-gray-600">
-                  
+
                   CorperConnect is a platform designed specifically for NYSC
                   corps members to find verified housing, share experiences, and
                   connect with fellow corps members in their service locations.
