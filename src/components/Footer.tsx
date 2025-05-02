@@ -42,12 +42,14 @@ const Footer = () => {
                 <Facebook size={18} />
               </a>
               <a
+                
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-emerald-100 hover:text-white transition-colors"
                 aria-label="Twitter"
               >
+                
                 <Twitter size={18} />
               </a>
               <a
