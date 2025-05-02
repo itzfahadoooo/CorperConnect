@@ -26,6 +26,7 @@ const Footer = () => {
 
               <span className="font-bold text-2xl">CorperConnect</span>
             </div>
+            
             <p className="text-emerald-100 text-sm mb-4">
               Connecting corps members to safe housing and supportive
               communities across Nigeria.
