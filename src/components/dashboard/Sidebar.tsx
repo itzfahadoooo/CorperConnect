@@ -62,6 +62,7 @@ const Sidebar = () => {
   };
 
   useEffect(() => {
+    
     // Dispatch custom event for the layout to listen to
     const event = new CustomEvent("sidebarToggle", { detail: { isCollapsed } });
     window.dispatchEvent(event);
