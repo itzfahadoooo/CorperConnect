@@ -11,10 +11,16 @@ import house3 from "@/assets/house3.jpg";
 import pro1 from "@/assets/profile1.png";
 import pro2 from "@/assets/profile2.png";
 import pro3 from "@/assets/profile3.png";
+import { auth } from "@/firebase/firebase";
+import { useEffect, useState } from "react";
+import { getUserDetails, UserDetails } from "@/services/userService";
+import { DotLoader } from "react-spinners";
 
 const Dashboard = () => {
   const { user } = useAuth();
   const location = useLocation(); // Get the current route
+  const [userData, setUserData] = useState<UserDetails | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const housingListings = [
     {
@@ -89,6 +95,31 @@ const Dashboard = () => {
     },
   ];
 
+  useEffect(() => {
+    // Check if the user is logged in
+    const user = auth.currentUser;
+
+    if (user) {
+      getUserDetails(user.uid)
+        .then((data) => {
+          setUserData(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching user data: ", error);
+          setLoading(false);
+        });
+    }
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <DotLoader color="#008000" size={60} />
+      </div>
+    );
+  }
+
   // Render the main dashboard content only for the base "/dashboard" route
   if (location.pathname === "/dashboard") {
     return (
@@ -96,8 +127,9 @@ const Dashboard = () => {
         <div className="mb-6">
           <h1 className="text-2xl font-bold">Dashboard</h1>
           <p className="text-gray-600">
-            Welcome back, {user?.displayName || user?.email || "Corper"}! Here's
-            what's happening in your area.
+            Welcome back,{" "}
+            {userData?.name || user?.displayName || user?.email || "Corper"}!
+            Here's what's happening in your area.
           </p>
         </div>
 

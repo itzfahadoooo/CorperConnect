@@ -5,18 +5,20 @@ import { db } from "@/firebase/firebase"; // path to your firebase.js
 interface User {
     uid: string;
     email: string;
+    name: string;
+
 }
 
 export async function saveUserDetailsToFirestore(
     user: User,
-    fullName: string,
+    name: string,
     phoneNumber: string,
     role: string
 ): Promise<void> {
     await setDoc(doc(db, "users", user.uid), {
         uid: user.uid,
         email: user.email,
-        fullName,
+        name,
         phoneNumber,
         role,
         createdAt: serverTimestamp()
@@ -33,10 +35,10 @@ export async function getUserDetails(uid: string): Promise<UserDetails | null> {
     }
 }
 
-interface UserDetails {
+export interface UserDetails {
     uid: string;
     email: string;
-    fullName: string;
+    name: string;
     phoneNumber: string;
     role: string;
 }
