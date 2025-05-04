@@ -20,11 +20,13 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "@/firebase/auth";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo.png";
+import { useUser } from "@/contexts/UserContext";
 
 const Sidebar = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const { userData } = useUser();
 
   const { user } = useAuth();
 
@@ -62,7 +64,6 @@ const Sidebar = () => {
   };
 
   useEffect(() => {
-    
     // Dispatch custom event for the layout to listen to
     const event = new CustomEvent("sidebarToggle", { detail: { isCollapsed } });
     window.dispatchEvent(event);
@@ -127,7 +128,7 @@ const Sidebar = () => {
               {!isCollapsed && (
                 <div>
                   <p className="font-medium text-sm">
-                    {user?.displayName || "No Name"}
+                    {userData?.name || user?.displayName || "No Name"}
                   </p>
                   <p className="text-xs text-gray-500">
                     Lagos State • 2023 Batch A
