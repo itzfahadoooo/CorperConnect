@@ -185,6 +185,7 @@ const Dashboard = () => {
               ))}
             </div>
           </div>
+          
 
           {/* Activity feed */}
           <div className="lg:col-span-1">
