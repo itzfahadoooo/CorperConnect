@@ -1,31 +1,31 @@
 import { useState } from "react";
-import { signup, loginWithGoogle } from "@/firebase/auth"
-import { Link, useNavigate } from "react-router-dom"
-import { EyeIcon, EyeOffIcon } from "lucide-react"
-import logo from "@/assets/logo.png"
+import { signup, loginWithGoogle } from "@/firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Signup = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmailSignUp = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError("")
-    setLoading(true)
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
     if (!name.trim()) {
-      setError("Name is required")
-      setLoading(false)
-      return
+      setError("Name is required");
+      setLoading(false);
+      return;
     }
-    
+
     try {
-      await signup(email, password);
+      await signup(email, password, name);
       navigate("/dashboard");
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -34,13 +34,13 @@ const Signup = () => {
         setError("Failed to create account");
       }
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
   const handleGoogleSignUp = async () => {
-    setError("")
-    setLoading(true)
+    setError("");
+    setLoading(true);
 
     try {
       await loginWithGoogle();
@@ -52,7 +52,7 @@ const Signup = () => {
         setError("Google login failed.");
       }
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -65,7 +65,9 @@ const Signup = () => {
             <img src={logo || "/placeholder.svg"} alt="Logo" />
           </div>
 
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Create an account</h2>
+          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+            Create an account
+          </h2>
         </div>
 
         {error && (
@@ -117,7 +119,10 @@ const Signup = () => {
           {/* Email/Password Sign Up */}
           <form className="mt-6 space-y-6" onSubmit={handleEmailSignUp}>
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Name
               </label>
               <div className="mt-1">
@@ -136,7 +141,10 @@ const Signup = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email
               </label>
               <div className="mt-1">
@@ -155,7 +163,10 @@ const Signup = () => {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <div className="mt-1 relative">
@@ -198,13 +209,16 @@ const Signup = () => {
 
         <div className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{" "}
-          <Link to="/login" className="text-base font-medium text-gray-800 hover:text-green-600">
+          <Link
+            to="/login"
+            className="text-base font-medium text-gray-800 hover:text-green-600"
+          >
             Login
           </Link>
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default Signup;

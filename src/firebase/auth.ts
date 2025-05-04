@@ -7,15 +7,37 @@ import {
   UserCredential,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth, googleProvider } from "./firebase";
+import { auth, db, googleProvider } from "./firebase";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 
 // Email Signup
-export const signup = (email: string, password: string): Promise<UserCredential> => {
-  return createUserWithEmailAndPassword(auth, email, password);
+export const signup = async (
+  email: string,
+  password: string,
+  name: string
+): Promise<UserCredential> => {
+  const userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
+  const user = userCredential.user;
+
+  // Save additional user details in Firestore
+  await setDoc(doc(db, "users", user.uid), {
+    uid: user.uid,
+    email: user.email,
+    name,
+    createdAt: serverTimestamp(),
+  });
+  return userCredential;
 };
 
 // Email Login
-export const login = (email: string, password: string): Promise<UserCredential> => {
+export const login = (
+  email: string,
+  password: string
+): Promise<UserCredential> => {
   return signInWithEmailAndPassword(auth, email, password);
 };
 
@@ -32,4 +54,4 @@ export const logout = (): Promise<void> => {
 // Password Reset
 export const resetPassword = (email: string): Promise<void> => {
   return sendPasswordResetEmail(auth, email);
-}
+};
