@@ -184,10 +184,7 @@ const Dashboard = () => {
                 <HousingCard key={listing.id} {...listing} />
               ))}
             </div>
-            
           </div>
-
-
 
           {/* Activity feed */}
           <div className="lg:col-span-1">
