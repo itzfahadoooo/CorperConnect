@@ -186,6 +186,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+
           {/* Activity feed */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg border shadow-sm">
