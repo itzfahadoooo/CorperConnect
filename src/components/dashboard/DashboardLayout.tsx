@@ -24,6 +24,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
     );
 
     return () => {
+      
       window.removeEventListener("sidebarToggle", handleSidebarToggle);
     };
   }, []);
