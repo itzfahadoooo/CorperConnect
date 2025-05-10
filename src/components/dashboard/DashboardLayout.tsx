@@ -34,6 +34,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       <Sidebar />
 
       <div
+
+      
         className={`transition-all duration-300 ${
           isSidebarCollapsed ? "lg:ml-20" : "lg:ml-64"
         }`}
