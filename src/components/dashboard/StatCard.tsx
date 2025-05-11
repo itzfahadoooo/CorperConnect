@@ -21,7 +21,7 @@ const StatCard = ({
   iconBgColor = "bg-emerald-100",
 }: StatCardProps) => {
   return (
-    <div className="bg-white p-4 sm:p-6 rounded-lg border shadow-sm">
+    <div className="bg-white p-4 sm:p-6 rounded-lg border shadow-sm cursor-pointer">
       <div className="flex items-start justify-between">
         <div>
           <p className="text-sm text-gray-500">{title}</p>

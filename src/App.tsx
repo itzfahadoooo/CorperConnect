@@ -7,8 +7,11 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import ResetPassword from "./pages/ResetPassword";
 import Housing from "./pages/dashboard/housing/Housing";
 import Locations from "./pages/dashboard/locations/Locations";
+import { Toaster } from "@/components/ui/sonner"
+
 
 import Id from "./pages/dashboard/housing/Id";
+import Onboarding from "./pages/dashboard/onboarding/onboarding";
 
 export default function App() {
   return (
@@ -26,6 +29,7 @@ export default function App() {
             </ProtectedRoute>
           }
         >
+          <Route path="onboarding" element={<Onboarding />} />
           <Route path="housing" element={<Housing />} />
           <Route path="/dashboard/housing/:id" element={<Id />} />
           <Route path="locations" element={<Locations/>} />
@@ -36,6 +40,7 @@ export default function App() {
           <Route path="*" element={<Dashboard />} />
         </Route>
       </Routes>
+      <Toaster />
     </BrowserRouter>
   );
 }

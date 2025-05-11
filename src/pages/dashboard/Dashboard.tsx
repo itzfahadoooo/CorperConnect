@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Building, MapPin, MessageSquare, Users } from "lucide-react";
 import DashboardLayout from "../../components/dashboard/DashboardLayout";
@@ -171,18 +171,13 @@ const Dashboard = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold">Recommended Housing</h2>
-              <a
-                href="/dashboard/housing"
+              <Link
+                to="/dashboard/housing"
                 className="text-sm text-emerald-600 hover:underline"
               >
-
                 View all
-              </a>
-
+              </Link>
             </div>
-
-
-
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {housingListings.map((listing) => (
@@ -203,12 +198,12 @@ const Dashboard = () => {
                   <ActivityCard key={index} {...activity} />
                 ))}
 
-                <a
-                  href="/dashboard/community"
+                <Link
+                  to="/dashboard/community"
                   className="block text-center text-sm text-emerald-600 hover:underline mt-4"
                 >
                   View all activity
-                </a>
+                </Link>
               </div>
             </div>
           </div>
