@@ -10,6 +10,7 @@ const MapboxComponent = () => {
   const mapContainerRef = useRef(null);
   const map = useRef<mapboxgl.Map | null>(null);
 
+  
   const [lng] = useState(-97.7431);
   const [lat] = useState(30.2672);
   const [zoom] = useState(2);
