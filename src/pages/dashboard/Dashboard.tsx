@@ -22,6 +22,7 @@ const Dashboard = () => {
   const [userData, setUserData] = useState<UserDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
+
   const housingListings = [
     {
       id: "1",

@@ -34,6 +34,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 const profileFormSchema = z.object({
   fullName: z.string().min(2, {
@@ -102,6 +103,8 @@ const Profileform = () => {
     },
   });
 
+  const navigate = useNavigate();
+
   async function onSubmit(data: ProfileFormValues) {
     setIsSubmitting(true);
 
@@ -117,8 +120,8 @@ const Profileform = () => {
           onClick: () => console.log("Undo"),
         },
       });
+      navigate("/dashboard");
     } catch {
-
       toast("Error", {
         description: "Something went wrong. Please try again.",
         action: {
@@ -134,8 +137,8 @@ const Profileform = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="space-y-6 rounded-lg border border-nysc-green/20 p-6 shadow-sm">
-          <div className="text-xl font-medium text-nysc-green">
+        <div className="space-y-6 rounded-lg border border-[#008000]/20 p-6 shadow-sm">
+          <div className="text-xl font-medium text-[#008000]">
             Personal Information
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
@@ -273,8 +276,8 @@ const Profileform = () => {
           </div>
         </div>
 
-        <div className="space-y-6 rounded-lg border border-nysc-green/20 p-6 shadow-sm">
-          <div className="text-xl font-medium text-nysc-green">
+        <div className="space-y-6 rounded-lg border border-[#008000]/20 p-6 shadow-sm">
+          <div className="text-xl font-medium text-[#008000]">
             Location Information
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
@@ -324,8 +327,8 @@ const Profileform = () => {
           </div>
         </div>
 
-        <div className="space-y-6 rounded-lg border border-nysc-green/20 p-6 shadow-sm">
-          <div className="text-xl font-medium text-nysc-green">
+        <div className="space-y-6 rounded-lg border border-[#008000]/20 p-6 shadow-sm">
+          <div className="text-xl font-medium text-[#008000]">
             Contact Information
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
@@ -358,8 +361,8 @@ const Profileform = () => {
           </div>
         </div>
 
-        <div className="space-y-6 rounded-lg border border-nysc-green/20 p-6 shadow-sm">
-          <div className="text-xl font-medium text-nysc-green">
+        <div className="space-y-6 rounded-lg border border-[#008000]/20 p-6 shadow-sm">
+          <div className="text-xl font-medium text-[#008000]">
             Education & Skills
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
@@ -412,7 +415,7 @@ const Profileform = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-nysc-green hover:bg-nysc-green/90 sm:w-auto"
+            className="w-full bg-[#008000] hover:bg-[#008000]/90 sm:w-auto"
           >
             {isSubmitting ? (
               <>
