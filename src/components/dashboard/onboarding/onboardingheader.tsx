@@ -1,7 +1,7 @@
 const Onboardingheader = () => {
   return (
-    <header className="w-full bg-white border-b border-[#008000]/20">
-      <div className="container flex h-16 items-center justify-between">
+    <header className=" bg-white border-b border-[#008000]/20 shadow-md sticky top-0  z-50">
+      <div className="container w-full px-7 flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-[#008000] flex items-center justify-center">
             <span className="text-white font-bold text-sm">CC</span>
