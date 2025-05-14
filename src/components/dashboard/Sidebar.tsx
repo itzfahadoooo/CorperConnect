@@ -40,8 +40,8 @@ const Sidebar = () => {
 
   const navItems = [
     { name: "Overview", path: "/dashboard", icon: Home },
-    { name: "Housing", path: "/dashboard/housing", icon: Building },
     { name: "Locations", path: "/dashboard/locations", icon: Map },
+    { name: "Housing", path: "/dashboard/housing", icon: Building },
     { name: "Community", path: "/dashboard/community", icon: Users },
     { name: "Messages", path: "/dashboard/messages", icon: MessageSquare },
     { name: "Notifications", path: "/dashboard/notifications", icon: Bell },
@@ -126,7 +126,10 @@ const Sidebar = () => {
               )}
 
               {!isCollapsed && (
-                <div>
+                <div
+                  className={`transition-opacity duration-300 ease-in-out opacity-100 overflow-hidden`}
+                  style={{ opacity: isCollapsed ? 0 : 1 }}
+                >
                   <p className="font-medium text-sm">
                     {userData?.name || user?.displayName || "No Name"}
                   </p>

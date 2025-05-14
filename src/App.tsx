@@ -12,6 +12,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 import Id from "./pages/dashboard/housing/Id";
 import Onboarding from "./pages/dashboard/onboarding/onboarding";
+import OfficeDetailPage from "./components/dashboard/locations/[id]/Page";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="housing" element={<Housing />} />
           <Route path="/dashboard/housing/:id" element={<Id />} />
           <Route path="locations" element={<Locations/>} />
+          <Route path="locations/:id" element={<OfficeDetailPage />} />
           <Route path="community" element={<Dashboard />} />
           <Route path="messages" element={<Dashboard />} />
           <Route path="notifications" element={<Dashboard />} />

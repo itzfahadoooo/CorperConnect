@@ -2,8 +2,8 @@
 
 import { ArrowLeft, MapPin, Star, Calendar, Phone, Mail } from "lucide-react";
 import DashboardLayout from "../../../components/dashboard/DashboardLayout";
-import { useParams } from "react-router-dom";
 import house1 from "@/assets/house1.jpg";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function HousingDetailPage() {
