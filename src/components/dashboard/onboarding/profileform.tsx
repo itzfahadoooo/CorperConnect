@@ -172,26 +172,30 @@ const Profileform = () => {
                           )}
                         >
                           {field.value ? (
-                            format(field.value, "PPP")
+                            format(field.value, "PPP") // Format the date if it exists
                           ) : (
-                            <span>Pick a date</span>
+                            <span>Pick a date</span> // Placeholder if no date is selected
                           )}
                           <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
+
+                    
                     <PopoverContent className="w-auto p-0" align="start">
                       <Calendar
                         mode="single"
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1940-01-01")
+                        selected={field.value || undefined} // Pass undefined if value is null
+                        onSelect={(date) => field.onChange(date || null)} // Handle null if no date is selected
+                        disabled={
+                          (date) =>
+                            date > new Date() || date < new Date("1940-01-01") // Disable dates outside the range
                         }
                         initialFocus
                       />
                     </PopoverContent>
                   </Popover>
+
                   <FormMessage />
                 </FormItem>
               )}
