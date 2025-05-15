@@ -158,7 +158,7 @@ const Dashboard = () => {
     },
     {
       id: "3",
-      title: "Skills Acquisition Workshop",
+      title: "Skills Acquisition",
       date: "May 30, 2023",
       location: "NYSC Multipurpose Hall",
       type: "Optional",
@@ -199,14 +199,16 @@ const Dashboard = () => {
           <p className="text-gray-600">
             Welcome back,{" "}
             {userData?.name || user?.displayName || user?.email || "Corper"}!
-            Connect, survive, and thrive in your service year. <span><Link
-            to="/dashboard/onboarding"
-            className="text-sm text-emerald-600 hover:underline"
-          >
-            Complete Your User Profile
-          </Link></span>
+            Connect, survive, and thrive in your service year.{" "}
+            <span>
+              <Link
+                to="/dashboard/onboarding"
+                className="text-sm text-emerald-600 hover:underline"
+              >
+                Complete Your User Profile
+              </Link>
+            </span>
           </p>
-          
         </div>
 
         {/* Stats */}
@@ -247,6 +249,40 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left column - Survival Tips and Nearby Corpers */}
           <div className="lg:col-span-2">
+            {/* Nearby Corps Members Section */}
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold">Nearby Corps Members</h2>
+                <Link
+                  to="/dashboard/corpers"
+                  className="text-sm text-emerald-600 hover:underline"
+                >
+                  View all
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {nearbyCorpers.map((corper) => (
+                  <div
+                    key={corper.id}
+                    className="bg-white rounded-lg border shadow-sm p-4 flex flex-col items-center"
+                  >
+                    <img
+                      src={corper.avatar || "/placeholder.svg"}
+                      alt={corper.name}
+                      className="w-16 h-16 rounded-full mb-2"
+                    />
+                    <h3 className="font-medium text-center">{corper.name}</h3>
+                    <p className="text-xs text-gray-500 mb-1">{corper.batch}</p>
+                    <p className="text-xs text-gray-600 mb-2">{corper.ppa}</p>
+                    <span className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800">
+                      {corper.distance}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Survival Tips Section */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-4">
@@ -279,40 +315,6 @@ const Dashboard = () => {
                     <div className="text-xs text-gray-500 mt-2">
                       Shared by {tip.author}
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Nearby Corps Members Section */}
-            <div className="mb-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold">Nearby Corps Members</h2>
-                <Link
-                  to="/dashboard/corpers"
-                  className="text-sm text-emerald-600 hover:underline"
-                >
-                  View all
-                </Link>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {nearbyCorpers.map((corper) => (
-                  <div
-                    key={corper.id}
-                    className="bg-white rounded-lg border shadow-sm p-4 flex flex-col items-center"
-                  >
-                    <img
-                      src={corper.avatar || "/placeholder.svg"}
-                      alt={corper.name}
-                      className="w-16 h-16 rounded-full mb-2"
-                    />
-                    <h3 className="font-medium text-center">{corper.name}</h3>
-                    <p className="text-xs text-gray-500 mb-1">{corper.batch}</p>
-                    <p className="text-xs text-gray-600 mb-2">{corper.ppa}</p>
-                    <span className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800">
-                      {corper.distance}
-                    </span>
                   </div>
                 ))}
               </div>
