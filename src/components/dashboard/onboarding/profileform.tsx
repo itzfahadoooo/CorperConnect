@@ -113,7 +113,7 @@ const Profileform = () => {
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       console.log(data);
-      toast("Profile created", {
+      toast.success("Profile created", {
         description: "Your profile has been successfully updated.",
         action: {
           label: "Close",
@@ -122,7 +122,7 @@ const Profileform = () => {
       });
       navigate("/dashboard");
     } catch {
-      toast("Error", {
+      toast.error("Error", {
         description: "Something went wrong. Please try again.",
         action: {
           label: "Undo",

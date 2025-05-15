@@ -42,7 +42,7 @@ export default function App() {
           <Route path="*" element={<Dashboard />} />
         </Route>
       </Routes>
-      <Toaster />
+      <Toaster richColors />
     </BrowserRouter>
   );
 }
