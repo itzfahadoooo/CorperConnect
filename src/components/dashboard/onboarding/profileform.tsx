@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { format } from "date-fns"
+import { format } from "date-fns";
 import { CalendarIcon, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -35,6 +35,9 @@ import {
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "@/contexts/UserContext";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/firebase/firebase";
 
 const profileFormSchema = z.object({
   fullName: z.string().min(2, {
@@ -90,6 +93,9 @@ const Profileform = () => {
     resolver: zodResolver(profileFormSchema),
     defaultValues: {
       fullName: "",
+      dateOfBirth: undefined,
+      gender: "",
+      maritalStatus: "",
       placeOfBirth: "",
       nationality: "Nigerian",
       stateOfOrigin: "",
@@ -105,14 +111,40 @@ const Profileform = () => {
 
   const navigate = useNavigate();
 
+  const { firebaseUser, userData } = useUser();
+
   async function onSubmit(data: ProfileFormValues) {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
+      if (!firebaseUser) {
+        toast.error("Error", { description: "User not logged in" });
+        setIsSubmitting(false); // reset submitting state before returning
+        return;
+      }
+
+      const userRef = doc(db, "users", firebaseUser.uid);
+
+      await setDoc(userRef, {
+        fullName: data.fullName,
+        phoneNumber: data.phoneNumber,
+        email: data.email,
+        placeOfBirth: data.placeOfBirth,
+        nationality: data.nationality,
+        stateOfOrigin: data.stateOfOrigin,
+        lga: data.lga,
+        residentialAddress: data.residentialAddress,
+        languagesSpoken: data.languagesSpoken,
+        institutionAttended: data.institutionAttended,
+        courseOfStudy: data.courseOfStudy,
+        dateOfBirth: data.dateOfBirth,
+        gender: data.gender,
+        maritalStatus: data.maritalStatus,
+      });
+
+      // Optional: simulate delay
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      console.log(data);
       toast.success("Profile created", {
         description: "Your profile has been successfully updated.",
         action: {
@@ -120,8 +152,10 @@ const Profileform = () => {
           onClick: () => console.log("Undo"),
         },
       });
+
       navigate("/dashboard");
-    } catch {
+    } catch (error) {
+      console.error(error);
       toast.error("Error", {
         description: "Something went wrong. Please try again.",
         action: {
@@ -133,6 +167,29 @@ const Profileform = () => {
       setIsSubmitting(false);
     }
   }
+
+  useEffect(() => {
+    if (userData) {
+      form.reset({
+        fullName: userData.fullName || "",
+        dateOfBirth: userData.dateOfBirth
+          ? new Date(userData.dateOfBirth)
+          : undefined,
+        gender: userData.gender || "",
+        maritalStatus: userData.maritalStatus || "",
+        placeOfBirth: userData.placeOfBirth || "",
+        nationality: userData.nationality || "Nigerian",
+        stateOfOrigin: userData.stateOfOrigin || "",
+        lga: userData.lga || "",
+        residentialAddress: userData.residentialAddress || "",
+        phoneNumber: userData.phoneNumber || "",
+        email: userData.email || "",
+        languagesSpoken: userData.languagesSpoken || "",
+        institutionAttended: userData.institutionAttended || "",
+        courseOfStudy: userData.courseOfStudy || "",
+      });
+    }
+  }, [userData]);
 
   return (
     <Form {...form}>
@@ -162,37 +219,38 @@ const Profileform = () => {
                 <FormItem className="flex flex-col">
                   <FormLabel>Date of Birth</FormLabel>
                   <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
-                  />
-                  
-                </PopoverContent>
-              </Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={"outline"}
+                          className={cn(
+                            "w-[240px] pl-3 text-left font-normal",
+                            !field.value && "text-muted-foreground"
+                          )}
+                        >
+                          {field.value instanceof Date &&
+                          !isNaN(field.value.getTime()) ? (
+                            format(field.value, "PPP")
+                          ) : (
+                            <span>Pick a date</span>
+                          )}
+
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={field.value}
+                        onSelect={field.onChange}
+                        disabled={(date) =>
+                          date > new Date() || date < new Date("1900-01-01")
+                        }
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
 
                   <FormMessage />
                 </FormItem>
