@@ -29,7 +29,7 @@ export default function NyscOfficesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const [selectedService, setSelectedService] = useState("");
-  const [viewType, setViewType] = useState("list");
+  const [viewType, setViewType] = useState("card");
 
   // Get unique states for the filter dropdown
   const states = useMemo(() => {
@@ -141,8 +141,8 @@ export default function NyscOfficesPage() {
                 onValueChange={setViewType}
               >
                 <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="list">List View</TabsTrigger>
                   <TabsTrigger value="card">Card View</TabsTrigger>
+                  <TabsTrigger value="list">List View</TabsTrigger>
                 </TabsList>
               </Tabs>
             </div>
