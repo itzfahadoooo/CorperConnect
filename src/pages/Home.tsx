@@ -34,14 +34,14 @@ export default function Home() {
                 experiences, and location reviews.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Link to="/dashboard">
+                <Link to="/dashboard/locations">
                   <button className="bg-[#008000] hover:bg-[#228B22] text-white px-6 py-3 rounded-md text-sm font-medium cursor-pointer w-full">
-                    Find Housing Now
+                    Explore Locations
                   </button>
                 </Link>
-                <Link to="/dashboard">
+                <Link to="/dashboard/housing">
                   <button className="border border-gray-300 bg-white hover:bg-gray-200 px-6 py-3 rounded-md text-sm font-medium cursor-pointer w-full">
-                    Explore Locations
+                    Find Housing Now
                   </button>
                 </Link>
               </div>
