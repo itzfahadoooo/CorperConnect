@@ -7,6 +7,9 @@ import HousingCard from "../../../components/dashboard/HousingCard";
 import house1 from "@/assets/house1.jpg";
 import house2 from "@/assets/house2.jpg";
 import house3 from "@/assets/house3.jpg";
+import house4 from "@/assets/house4.jpg";
+import house5 from "@/assets/house5.jpg";
+import house6 from "@/assets/house6.jpg";
 
 const Housing = () => {
   const [filterOpen, setFilterOpen] = useState(false);
@@ -47,7 +50,7 @@ const Housing = () => {
       location: "Bodija, Ibadan",
       price: 55000,
       rating: 4.0,
-      imageUrl: house1,
+      imageUrl: house4,
       verified: true,
     },
     {
@@ -56,7 +59,7 @@ const Housing = () => {
       location: "Asaba, Delta",
       price: 90000,
       rating: 4.7,
-      imageUrl: house2,
+      imageUrl: house5,
       verified: true,
     },
     {
@@ -65,7 +68,7 @@ const Housing = () => {
       location: "Kaduna South, Kaduna",
       price: 45000,
       rating: 3.9,
-      imageUrl: house3,
+      imageUrl: house6,
       verified: false,
     },
   ];
