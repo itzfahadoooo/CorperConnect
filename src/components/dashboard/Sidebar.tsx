@@ -42,10 +42,10 @@ const Sidebar = () => {
     { name: "Overview", path: "/dashboard", icon: Home },
     { name: "Locations", path: "/dashboard/locations", icon: Map },
     { name: "Housing", path: "/dashboard/housing", icon: Building },
-    { name: "Community", path: "/dashboard/community", icon: Users },
-    { name: "Messages", path: "/dashboard/messages", icon: MessageSquare },
-    { name: "Notifications", path: "/dashboard/notifications", icon: Bell },
-    { name: "Settings", path: "/dashboard/settings", icon: Settings },
+    { name: "Community", path: "#", icon: Users },
+    { name: "Messages", path: "#", icon: MessageSquare },
+    { name: "Notifications", path: "#", icon: Bell },
+    { name: "Settings", path: "#", icon: Settings },
   ];
 
   const toggleMobileMenu = () => {

@@ -8,6 +8,8 @@ import ResetPassword from "./pages/ResetPassword";
 import Housing from "./pages/dashboard/housing/Housing";
 import Locations from "./pages/dashboard/locations/Locations";
 import { Toaster } from "@/components/ui/sonner"
+import ScrollToTop from "./components/ScrollToTop";
+
 
 
 import Id from "./pages/dashboard/housing/Id";
@@ -43,6 +45,7 @@ export default function App() {
         </Route>
       </Routes>
       <Toaster richColors />
+      <ScrollToTop/>
     </BrowserRouter>
   );
 }
