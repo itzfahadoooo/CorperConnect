@@ -14,6 +14,7 @@ import house3 from "@/assets/house3.jpg";
 import house4 from "@/assets/house4.jpg";
 import house5 from "@/assets/house5.jpg";
 
+
 import house6 from "@/assets/house6.jpg";
 
 const Housing = () => {
