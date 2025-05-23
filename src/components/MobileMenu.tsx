@@ -10,11 +10,12 @@ const MobileMenu = () => {
   return (
     <div>
 
-      
+
       {/* Mobile Menu Button */}
       <button
 
         className="md:hidden"
+        
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? "Close Menu" : "Open Menu"}
       >
