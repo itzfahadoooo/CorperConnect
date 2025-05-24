@@ -16,6 +16,7 @@ const MobileMenu = () => {
 
         className="md:hidden"
 
+        
         onClick={() => setIsOpen(!isOpen)}
 
         aria-label={isOpen ? "Close Menu" : "Open Menu"}
