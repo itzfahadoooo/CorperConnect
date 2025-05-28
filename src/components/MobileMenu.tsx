@@ -17,8 +17,9 @@ const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    
+
     <div>
+      
       {/* Mobile Menu Button */}
       <button
         className="md:hidden"
