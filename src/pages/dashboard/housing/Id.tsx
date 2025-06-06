@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 
 export default function HousingDetailPage() {
+  
   const params = useParams();
   const id = params.id;
 
