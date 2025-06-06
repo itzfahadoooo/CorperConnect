@@ -5,14 +5,13 @@ import DashboardLayout from "../../../components/dashboard/DashboardLayout";
 
 import house1 from "@/assets/house1.jpg";
 
-
 import { useParams } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
 
 export default function HousingDetailPage() {
-  
+
   const params = useParams();
   const id = params.id;
 
