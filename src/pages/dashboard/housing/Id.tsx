@@ -8,7 +8,6 @@ import house1 from "@/assets/house1.jpg";
 
 import { useParams } from "react-router-dom";
 
-
 import { Link } from "react-router-dom";
 
 export default function HousingDetailPage() {
