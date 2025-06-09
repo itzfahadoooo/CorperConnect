@@ -90,6 +90,8 @@ export default function HousingDetailPage() {
                 className="object-cover"
               />
             </div>
+
+            
           ))}
         </div>
       </div>
