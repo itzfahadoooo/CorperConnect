@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function HousingDetailPage() {
-
   const params = useParams();
   const id = params.id;
 
@@ -90,18 +89,16 @@ export default function HousingDetailPage() {
                 className="object-cover"
               />
             </div>
-
           ))}
         </div>
       </div>
-
 
       {/* Main content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left column - Details */}
         <div className="lg:col-span-2">
           {/* Price and rating */}
-          
+
           <div className="bg-white rounded-lg border shadow-sm p-4 mb-6">
             <div className="flex items-center justify-between">
               <div>
