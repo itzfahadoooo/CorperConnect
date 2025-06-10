@@ -91,6 +91,7 @@ export default function HousingDetailPage() {
             </div>
           ))}
         </div>
+        
       </div>
 
 
