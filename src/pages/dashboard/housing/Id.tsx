@@ -91,7 +91,7 @@ export default function HousingDetailPage() {
             </div>
           ))}
         </div>
-        
+
       </div>
 
 
@@ -105,6 +105,7 @@ export default function HousingDetailPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-2xl font-bold">
+                  
                   ₦{housing.price.toLocaleString()}
                 </p>
                 <p className="text-gray-600">per month</p>
