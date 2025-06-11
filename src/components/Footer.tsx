@@ -10,6 +10,7 @@ import {
 import logo from "@/assets/logo2.png";
 
 
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
