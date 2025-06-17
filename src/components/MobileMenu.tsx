@@ -66,9 +66,11 @@ const MobileMenu = () => {
               className="text-base font-medium text-gray-800 hover:text-green-600"
               onClick={() => setIsOpen(false)}
             >
-              
+
               Faq
             </Link>
+
+            
             <div className="flex flex-col space-y-2 pt-2">
               <RouterLink
                 to="/login"
