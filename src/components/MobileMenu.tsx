@@ -43,7 +43,6 @@ const MobileMenu = () => {
             >
               Features
             </Link>
-
             <Link
               to="how-it-works"
               className="text-base font-medium text-gray-800 hover:text-green-600"
