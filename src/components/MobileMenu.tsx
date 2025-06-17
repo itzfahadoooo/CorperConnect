@@ -66,10 +66,7 @@ const MobileMenu = () => {
               onClick={() => setIsOpen(false)}
             >
               Faq
-
             </Link>
-
-
             <div className="flex flex-col space-y-2 pt-2">
               <RouterLink
                 to="/login"
