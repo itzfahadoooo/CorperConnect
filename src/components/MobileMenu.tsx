@@ -36,13 +36,14 @@ const MobileMenu = () => {
       {isOpen && (
         <div className="absolute left-0 top-16 z-10 w-full bg-white p-4 shadow-lg md:hidden">
           <div className="flex flex-col space-y-4">
+            
             <Link
               to="features"
               className="text-base font-medium text-gray-800 hover:text-green-600"
               onClick={() => setIsOpen(false)}
             >
               Features
-              
+
             </Link>
             <Link
               to="how-it-works"
