@@ -42,6 +42,7 @@ const MobileMenu = () => {
               onClick={() => setIsOpen(false)}
             >
               Features
+              
             </Link>
             <Link
               to="how-it-works"
