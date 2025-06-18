@@ -36,6 +36,7 @@ const MobileMenu = () => {
       {isOpen && (
         <div className="absolute left-0 top-16 z-10 w-full bg-white p-4 shadow-lg md:hidden">
           <div className="flex flex-col space-y-4">
+
             
             <Link
               to="features"
