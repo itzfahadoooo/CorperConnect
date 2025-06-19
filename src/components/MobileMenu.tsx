@@ -9,9 +9,7 @@ const MobileMenu = () => {
       {/* Mobile Menu Button */}
       <button
         className="md:hidden"
-
         onClick={() => setIsOpen(!isOpen)}
-        
         aria-label={isOpen ? "Close Menu" : "Open Menu"}
       >
         <svg
