@@ -28,6 +28,7 @@ const MobileMenu = () => {
           )}
         </svg>
       </button>{" "}
+      
       {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute left-0 top-16 z-10 w-full bg-white p-4 shadow-lg md:hidden">
@@ -48,7 +49,7 @@ const MobileMenu = () => {
             </Link>
             
             <Link
-            
+
               to="testimonials"
               className="text-base font-medium text-gray-800 hover:text-green-600"
               onClick={() => setIsOpen(false)}
