@@ -78,6 +78,7 @@ const MobileMenu = () => {
                 to="/signup"
                 className="text-base font-medium text-white "
               >
+                
                 <Button
                   className="w-full bg-green-600 text-white hover:bg-green-700"
                   onClick={() => setIsOpen(false)}
@@ -85,7 +86,7 @@ const MobileMenu = () => {
                   Sign Up
                 </Button>
               </RouterLink>
-              
+
             </div>
           </div>
 
