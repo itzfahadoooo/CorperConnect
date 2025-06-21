@@ -19,7 +19,7 @@ const MobileMenu = () => {
         aria-label={isOpen ? "Close Menu" : "Open Menu"}
       >
         <svg
-        
+
           className="h-6 w-6 text-gray-800"
           fill="none"
           
@@ -27,6 +27,7 @@ const MobileMenu = () => {
           strokeLinejoin="round"
           strokeWidth="2"
           viewBox="0 0 24 24"
+          
           stroke="currentColor"
         >
           {isOpen ? (
