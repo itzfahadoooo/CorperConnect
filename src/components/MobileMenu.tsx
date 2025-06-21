@@ -3,6 +3,7 @@ import { Link } from "react-scroll";
 import { Button } from "./ui/button";
 import { Link as RouterLink } from "react-router-dom";
 const MobileMenu = () => {
+  
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div>
