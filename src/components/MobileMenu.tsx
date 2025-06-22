@@ -24,6 +24,7 @@ const MobileMenu = () => {
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
+          
           viewBox="0 0 24 24"
 
           stroke="currentColor"
