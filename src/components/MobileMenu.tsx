@@ -10,7 +10,6 @@ const MobileMenu = () => {
     <div>
       {/* Mobile Menu Button */}
 
-
       <button
         className="md:hidden"
 
