@@ -18,7 +18,6 @@ const MobileMenu = () => {
         aria-label={isOpen ? "Close Menu" : "Open Menu"}
       >
         <svg
-
           className="h-6 w-6 text-gray-800"
           fill="none"
           
