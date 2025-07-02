@@ -189,7 +189,6 @@ const Dashboard = () => {
       </div>
     );
   }
-
   // Render the main dashboard content only for the base "/dashboard" route
   if (location.pathname === "/dashboard") {
     return (
