@@ -27,6 +27,7 @@ const Dashboard = () => {
 
   const survivalTips = [
     {
+
       
 
       id: "1",
