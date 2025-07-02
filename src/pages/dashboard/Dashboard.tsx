@@ -27,9 +27,10 @@ const Dashboard = () => {
 
   const survivalTips = [
     {
+      
       id: "1",
       title: "Getting Around in Lagos",
-      
+
       author: "Chioma Okafor",
       content:
         "Use the BRT buses for longer distances - they're cheaper and avoid traffic with dedicated lanes.",
