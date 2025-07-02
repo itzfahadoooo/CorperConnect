@@ -24,6 +24,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   // Mock data for survival tips
+  
   const survivalTips = [
     {
       id: "1",
