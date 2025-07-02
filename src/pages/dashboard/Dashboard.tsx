@@ -181,7 +181,7 @@ const Dashboard = () => {
         });
     }
   }, []);
-  
+
 
   if (loading) {
     return (
@@ -190,7 +190,7 @@ const Dashboard = () => {
       </div>
     );
   }
-  
+
   
 
   // Render the main dashboard content only for the base "/dashboard" route
