@@ -27,10 +27,7 @@ const Dashboard = () => {
 
   const survivalTips = [
     {
-
-
       
-
       id: "1",
       title: "Getting Around in Lagos",
 
